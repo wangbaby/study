@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "string_view": "cpp",
+        "optional": "cpp",
+        "vector": "cpp",
+        "memory": "cpp",
+        "cstdio": "cpp",
+        "stdio.h": "c",
+        "unistd.h": "c"
+    }
+}

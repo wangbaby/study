@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        const aj1 = $.ajax({
+            url: 'result.json',
+            success(data) {
+                console.log('success', data)
+            },
+            error(err) {
+                console.log('error', err)
+            }
+        })
+        console.log('aj2', aj1)
+
+        const aj2 = $.ajax("result.json");
+        aj2.done(() => {
+            console.log("success1")
+        }).fail(() => {
+            console.log("error");
+        }).done(() => {
+            console.log("success2")
+        })
+        console.log('aj2', aj2)
+
+        const aj3 = $.ajax("result.json")
+        aj3.then(() => {
+            console.log("success1")
+        }, () => {
+            console.log("error1")
+        }).then(() => {
+            console.log("success2")
+        }, () => {
+            console.log("error2")
+        })
+        console.log('aj3', aj3)
+
+        function waitHandler() {
+            const dtd = $.Deferred();
+            function wait() {
+                const task = function () {
+                    console.log("任务完成")
+                    dtd.resolve();
+                }
+                setTimeout(task, 2000)
+                // return dtd
+                return dtd.promise()
+            }
+
+            return wait();
+        }
+
+        waitHandler().then(() => {
+            console.log("success1")
+        }, () => {
+            console.log("error1")
+        }).then(() => {
+            console.log("success2")
+        }, () => {
+            console.log("error2")
+        })
+    </script>
+</body>
+
+</html>

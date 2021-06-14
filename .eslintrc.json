@@ -1,0 +1,21 @@
+// vscode ESLint 插件并没有像 Prettier 插件那样自身有一个捆绑的 ESLint 版本, 需要在项目或者全局安装eslint
+// npm install --save-dev  prettier eslint-config-prettier eslint-plugin-prettier， 配置 "extends": ["plugin:prettier/recommended"]，这样eslint会把代码格式相关的校验转给prettier(会使用.prettierrc)
+// eslint使用了.prettierrc,如果更改了.prettierrc, 需要重启下vscode使配置生效
+{
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  // npm install --save-dev eslint-config-airbnb-base
+  "extends": ["eslint:recommended", "airbnb-base", "plugin:prettier/recommended"],
+  "rules": {
+    "no-console": "off"
+  }
+}

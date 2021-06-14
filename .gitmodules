@@ -1,0 +1,3 @@
+[submodule "python/project/python-mini-projects"]
+	path = python/project/python-mini-projects
+	url = https://github.com/Python-World/python-mini-projects.git
